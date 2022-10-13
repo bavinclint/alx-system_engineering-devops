@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#first exercise
+# This script is displaying "Best School" 10 times
 
 END=10
 for _ in $(seq 1 $END); do echo "Best School";done
