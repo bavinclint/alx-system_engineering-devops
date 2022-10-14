@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# a loop that displays a string indefinitely using trap to print a msg
+trap 'echo "I am invincible!!!"' SIGTERM
+while :; do
+    echo "To infinity and beyond"
+    sleep 2
+done
