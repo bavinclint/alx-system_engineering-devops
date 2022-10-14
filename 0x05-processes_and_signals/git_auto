@@ -1,4 +1,4 @@
 #!/bin/bash
 git add .
-git commit -m "Process and PID file"
+git commit -m "Manage my process"
 git push
