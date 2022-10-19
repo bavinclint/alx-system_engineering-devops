@@ -1,4 +1,4 @@
 #!/bin/bash
 git add .
-git commit -m "Call me maybe"
+git commit -m "Textme"
 git push
