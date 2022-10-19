@@ -1,4 +1,4 @@
 #!/bin/bash
 git add .
-git commit -m "Repetition Token 1"
+git commit -m "Repetition Token 2"
 git push
