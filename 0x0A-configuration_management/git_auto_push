@@ -1,4 +1,4 @@
 !#/bin/bash
 git add .
-git commit -m 'create file'
+git commit -m 'install package'
 git push
