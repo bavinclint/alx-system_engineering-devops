@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# SSH client configuration
+PasswordAuthentication no
+AuthorizedKeysFile      ~/.ssh/school
