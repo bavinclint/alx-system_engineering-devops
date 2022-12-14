@@ -1,4 +1,4 @@
 !#/bin/bash
 git add .
-git commit -m 'install package'
+git commit -m 'execute a command'
 git push
