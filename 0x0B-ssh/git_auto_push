@@ -1,4 +1,4 @@
 #!/bin/bash
 git add .
-git commit -m "first commit"
+git commit -m "ssh key pair"
 git push
