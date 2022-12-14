@@ -1,5 +1,5 @@
 # create a file in /tmp
-file { '/tmp/holberton':
+file { '/tmp/school':
     ensure  => present,
     content => 'I love Puppet',
     mode    => '0744',
