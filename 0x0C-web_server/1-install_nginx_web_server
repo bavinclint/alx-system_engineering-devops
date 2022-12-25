@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#install nginx and redirects to holberton school string
+#install nginx and redirects to school string
 sudo apt-get -y update
 sudo apt-get -y install nginx
 file1=/usr/share/nginx/html/index.html
