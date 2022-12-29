@@ -2,7 +2,7 @@
 #  redirecting to another page
 sudo apt-get update
 sudo apt-get install nginx -y
-echo "Hello World!" | sudo tee /usr/share/nginx/html/index.html
+echo "Hello World!" | sudo tee /var/www/html/index.html
 sudo service nginx start
 new_location="location /redirect_me {\nrewrite ^(.*)$ https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;\n}"
 sudo sed -i "30i $new_location" /etc/nginx/sites-available/default
