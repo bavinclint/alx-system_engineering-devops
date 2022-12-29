@@ -1,16 +1,23 @@
 #!/usr/bin/env bash
-#sets up load balancers
-sudo apt install -y haproxy=1.5\*
-file=/etc/haproxy/haproxy.cfg
-sudo echo -e "frontend haproxynode
-\tbind *:80
-\tmode http
-\tdefault_backend nodes" | sudo tee -a $file
-sudo echo -e "backend nodes
-\tmode http
-\tbalance roundrobin
-\toption forwardfor
-\thttp-request set-header X-Forwarded-Port %[dst_port]
-\tserver 274-web-01 35.231.71.122:80 check
-\tserver 274-web-02 35.196.73.169:80 check" | sudo tee -a $file
-sudo service haproxy restart
+# Install and configure HAproxy
+apt-get update
+apt-get install -y haproxy
+
+CONFIGURED=$(grep -c "^frontend http_front$" /etc/haproxy/haproxy.cfg)
+
+if [ "$CONFIGURED" = 0 ]; then
+    echo -e "\nfrontend http_front" >> /etc/haproxy/haproxy.cfg
+    sed -i "/frontend http_front/a \\\tdefault_backend http_back" /etc/haproxy/haproxy.cfg
+    sed -i "/frontend http_front/a \\\tbind *:80" /etc/haproxy/haproxy.cfg
+fi
+
+CONFIGURED=$(grep -c "^backend http_back$" /etc/haproxy/haproxy.cfg)
+
+if [ "$CONFIGURED" = 0 ]; then
+    echo -e "\nbackend http_back" >> /etc/haproxy/haproxy.cfg
+    sed -i "/^backend http_back$/a \\\tserver 2701-web-02 34.74.249.41:80 check" /etc/haproxy/haproxy.cfg
+    sed -i "/^backend http_back$/a \\\tserver 2701-web-01 34.138.56.48:80 check" /etc/haproxy/haproxy.cfg
+    sed -i "/^backend http_back$/a \\\tbalance roundrobin" /etc/haproxy/haproxy.cfg
+fi
+
+service haproxy restart
