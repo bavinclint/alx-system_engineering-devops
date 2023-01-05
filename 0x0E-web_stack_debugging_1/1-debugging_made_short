@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Create symbolic link
-ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
+# Replace nginx configuration file with default settings
+cat /etc/nginx/sites-available/default > /etc/nginx/sites-enabled/default
 service nginx restart
-pkill -o nginx
+rm /run/nginx.pid
