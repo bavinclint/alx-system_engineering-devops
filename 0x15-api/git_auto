@@ -1,4 +1,4 @@
 #!/bin/bash
 git add .
-git commit -m "Export to CSV"
+git commit -m "Updated export"
 git push
