@@ -1,4 +1,4 @@
 #!/bin/bash
 git add .
-git commit -m "Gather data from an API"
+git commit -m "Export to CSV"
 git push
