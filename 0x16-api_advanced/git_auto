@@ -1,4 +1,4 @@
 #!/bin/bash
 git add .
-git commit -m 'Recurse'
+git commit -m 'Count it!'
 git push
