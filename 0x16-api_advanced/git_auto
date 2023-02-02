@@ -1,4 +1,4 @@
 #!/bin/bash
 git add .
-git commit -m 'subs'
+git commit -m 'Recurse'
 git push
