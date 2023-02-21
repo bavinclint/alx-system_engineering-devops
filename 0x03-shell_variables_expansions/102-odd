@@ -1,2 +1,2 @@
 #!/bin/bash
-paste -d, - - | cut -d, -f1
+ls -1 | tr '\n' ':' | cut -d':' -f$(seq -s, 1 2 5000) | tr ':' '\n'
